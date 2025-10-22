@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sanjeev - Backend Developer</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      header {
+        text-align: center;
+        padding: 60px 20px;
+        color: white;
+        animation: fadeInDown 1s ease;
+      }
+
+      h1 {
+        font-size: 3em;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .tagline {
+        font-size: 1.5em;
+        opacity: 0.9;
+        margin-bottom: 30px;
+      }
+
+      .cta-button {
+        display: inline-block;
+        padding: 12px 30px;
+        background: white;
+        color: #667eea;
+        text-decoration: none;
+        border-radius: 25px;
+        font-weight: bold;
+        transition: transform 0.3s, box-shadow 0.3s;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .cta-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      .section {
+        background: white;
+        margin: 30px 0;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        animation: fadeInUp 1s ease;
+      }
+
+      h2 {
+        color: #667eea;
+        margin-bottom: 30px;
+        font-size: 2em;
+        border-bottom: 3px solid #667eea;
+        padding-bottom: 10px;
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin-top: 30px;
+      }
+
+      .skill-category {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 25px;
+        border-radius: 10px;
+        color: white;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .skill-category:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+      }
+
+      .skill-category h3 {
+        margin-bottom: 15px;
+        font-size: 1.3em;
+      }
+
+      .skill-category ul {
+        list-style: none;
+      }
+
+      .skill-category li {
+        padding: 8px 0;
+        padding-left: 20px;
+        position: relative;
+      }
+
+      .skill-category li:before {
+        content: "▹";
+        position: absolute;
+        left: 0;
+        color: #fff;
+        font-weight: bold;
+      }
+
+      .about {
+        font-size: 1.1em;
+        line-height: 1.8;
+        color: #555;
+      }
+
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+        margin-top: 30px;
+      }
+
+      .project-card {
+        background: #f8f9fa;
+        padding: 25px;
+        border-radius: 10px;
+        border-left: 4px solid #667eea;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .project-card:hover {
+        transform: translateX(5px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .project-card h3 {
+        color: #667eea;
+        margin-bottom: 10px;
+      }
+
+      .project-card p {
+        color: #666;
+        margin-bottom: 15px;
+      }
+
+      .tech-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .tech-tag {
+        background: #667eea;
+        color: white;
+        padding: 5px 12px;
+        border-radius: 15px;
+        font-size: 0.85em;
+      }
+
+      .contact {
+        text-align: center;
+      }
+
+      .contact-links {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-top: 30px;
+      }
+
+      .contact-link {
+        padding: 15px 30px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        transition: transform 0.3s, box-shadow 0.3s;
+        font-weight: bold;
+      }
+
+      .contact-link:hover {
+        transform: scale(1.05);
+        box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+      }
+
+      footer {
+        text-align: center;
+        padding: 30px;
+        color: white;
+        margin-top: 50px;
+      }
+
+      @keyframes fadeInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 2em;
+        }
+
+        .tagline {
+          font-size: 1.2em;
+        }
+
+        .section {
+          padding: 25px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>Sanjeev</h1>
+        <p class="tagline">
+          Backend Developer | Java Specialist | Cloud Enthusiast
+        </p>
+        <a href="#contact" class="cta-button">Get In Touch</a>
+      </div>
+    </header>
+
+    <div class="container">
+      <section class="section">
+        <h2>About Me</h2>
+        <div class="about">
+          <p>
+            Hello! I'm Sanjeev, a passionate Backend Developer specializing in
+            building robust, scalable server-side applications. With expertise
+            in Java and the Spring ecosystem, I create efficient solutions that
+            power modern web applications.
+          </p>
+          <p style="margin-top: 15px">
+            I focus on writing clean, maintainable code and implementing best
+            practices in API development, database design, and cloud deployment.
+            My goal is to build systems that are not only functional but also
+            optimized for performance and reliability.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Technical Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h3>Backend Development</h3>
+            <ul>
+              <li>Java</li>
+              <li>Spring Framework</li>
+              <li>Spring Boot</li>
+              <li>RESTful APIs</li>
+              <li>Microservices</li>
+            </ul>
+          </div>
+          <div class="skill-category">
+            <h3>Databases</h3>
+            <ul>
+              <li>MySQL</li>
+              <li>PostgreSQL</li>
+              <li>MongoDB</li>
+              <li>Database Design</li>
+              <li>Query Optimization</li>
+            </ul>
+          </div>
+          <div class="skill-category">
+            <h3>Cloud & DevOps</h3>
+            <ul>
+              <li>AWS Basics</li>
+              <li>EC2 & S3</li>
+              <li>RDS</li>
+              <li>Docker</li>
+              <li>CI/CD</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Featured Projects</h2>
+        <div class="projects-grid">
+          <div class="project-card">
+            <h3>E-Commerce API</h3>
+            <p>
+              Developed a comprehensive RESTful API for an e-commerce platform
+              with user authentication, product management, and order
+              processing.
+            </p>
+            <div class="tech-tags">
+              <span class="tech-tag">Spring Boot</span>
+              <span class="tech-tag">MySQL</span>
+              <span class="tech-tag">JWT</span>
+            </div>
+          </div>
+          <div class="project-card">
+            <h3>Task Management System</h3>
+            <p>
+              Built a microservices-based task management system with real-time
+              updates and user collaboration features.
+            </p>
+            <div class="tech-tags">
+              <span class="tech-tag">Java</span>
+              <span class="tech-tag">Spring</span>
+              <span class="tech-tag">MongoDB</span>
+            </div>
+          </div>
+          <div class="project-card">
+            <h3>Cloud File Storage</h3>
+            <p>
+              Created a secure file storage service deployed on AWS with
+              automatic backups and file versioning capabilities.
+            </p>
+            <div class="tech-tags">
+              <span class="tech-tag">Spring Boot</span>
+              <span class="tech-tag">AWS S3</span>
+              <span class="tech-tag">PostgreSQL</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section contact" id="contact">
+        <h2>Let's Connect</h2>
+        <p style="font-size: 1.1em; color: #666; margin-bottom: 20px">
+          I'm always interested in hearing about new opportunities and projects.
+          Feel free to reach out!
+        </p>
+        <div class="contact-links">
+          <a href="mailto:sanjeevkadagandla61@gmail.com" class="contact-link"
+            >Email Me</a
+          >
+          <a
+            href="https://www.linkedin.com/in/sanjeevkadagandla/"
+            class="contact-link"
+            target="_blank"
+            >LinkedIn</a
+          >
+          <a
+            href="https://github.com/Ksanjeev7"
+            class="contact-link"
+            target="_blank"
+            >GitHub</a
+          >
+        </div>
+      </section>
+    </div>
+
+    <footer>
+      <p>&copy; 2025 Sanjeev. All rights reserved.</p>
+    </footer>
+
+    <script>
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Add animation on scroll
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll(".section").forEach((section) => {
+        section.style.opacity = "0";
+        section.style.transform = "translateY(20px)";
+        section.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+        observer.observe(section);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+# recommended .gitignore contents:
+# .terraform/
+# *.tfstate
+# *.tfstate.backup
+# .terraform.lock.hcl
+# *.tfvars
+# .vscode/
